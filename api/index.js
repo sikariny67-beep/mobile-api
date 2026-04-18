@@ -28,7 +28,7 @@ app.get('/api/attractions', async (req, res) => {
 
 // หน้าเช็คสถานะ (ทางเดินหลักของ Vercel)
 app.get('/api', (req, res) => {
-    res.send('API ของศิครินทร์ Online 100% แล้วครับเพื่อน!');
+    res.send('Mobile App API v1.0 by Sikharin Yonpaph');
 });
 
 module.exports = app;
