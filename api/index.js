@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // ลิงก์ MongoDB ของมึง
-const mongoURI = "mongodb+srv://sikarin:yCy9_Yv4LVGXjKa@cluster0.vgyi9bg.mongodb.net/?appName=Cluster0";
+const mongoURI = "mongodb+srv://sikarin:Sikarin1234@cluster0.vgyi9bg.mongodb.net/?appName=Cluster0";
 
 mongoose.connect(mongoURI).then(() => console.log('DB Connected'));
 
