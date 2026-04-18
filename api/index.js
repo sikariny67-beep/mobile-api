@@ -20,14 +20,14 @@ const Attraction = mongoose.model('Attraction', {
     coverimage: String
 });
 
-// GET: ดึงข้อมูลทั้งหมดไปโชว์ในแอป
-app.get('/api/attractions', async (req, res) => {
+// แก้จาก app.get('/api/attractions', ...) เป็นแบบนี้:
+app.get('/attractions', async (req, res) => { 
     const data = await Attraction.find();
     res.json(data);
 });
 
-// POST: เอาไว้ให้มึงกดเพิ่มข้อมูลจากแอป
-app.post('/api/attractions', async (req, res) => {
+// แก้จาก app.post('/api/attractions', ...) เป็นแบบนี้:
+app.post('/attractions', async (req, res) => {
     const newItem = new Attraction(req.body);
     await newItem.save();
     res.status(201).json(newItem);
