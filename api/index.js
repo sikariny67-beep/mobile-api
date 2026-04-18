@@ -6,29 +6,26 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// เชื่อมต่อ MongoDB (ลิงก์ของมึง)
+// ลิงก์ MongoDB ของมึง
 const mongoURI = "mongodb+srv://sikarin:yCy9_Yv4LVGXjKa@cluster0.vgyi9bg.mongodb.net/?appName=Cluster0";
 
-mongoose.connect(mongoURI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+mongoose.connect(mongoURI).then(() => console.log('DB Connected'));
 
-// สร้าง Model
 const Attraction = mongoose.model('Attraction', {
     name: String,
     detail: String,
     coverimage: String
 });
 
-// แก้ทางเดินให้ตรงกับที่ Vercel เรียกมา
+// ดักจับทุกอย่างที่ส่งมาหา /api/...
 app.get('/api/attractions', async (req, res) => {
     const data = await Attraction.find();
     res.json(data);
 });
 
-// หน้าเช็คสถานะ (ทางเดินหลักของ Vercel)
+// หน้าเช็คสถานะ
 app.get('/api', (req, res) => {
-    res.send('Mobile App API v1.0 by Sikharin Yonpaph');
+    res.send('API สถานะ: พร้อมใช้งาน 100% (Sikharin Yonpaph)');
 });
 
 module.exports = app;
